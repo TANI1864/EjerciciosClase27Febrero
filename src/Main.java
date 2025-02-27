@@ -1,39 +1,40 @@
+import java.sql.SQLOutput;
 import java.util.Random;
+import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        int max = 10;
-        int min = 1;
-        int rondas, d1, d2;
-        int contD1=0, contD2=0;
-        int Dif;
+        int Intentos, I1, I2, i3;
+        int usuario = 0;
+        int Aleatorio ;
+        int guardar = 0 ;
 
 
         Random ale = new Random();
 
 
-        rondas = ale.nextInt((max - min +1)) + min;
-        System.out.println("CANTIDAD DE RONDAS: " + rondas);
-                for(int i=1 ; i<=rondas; i++){
-                    d1 = ale.nextInt((6 - 1 + 1)) + 1;
-                    contD1 += d1;
+        Aleatorio = ale.nextInt((50 - 1 +1)) + 1;
+        System.out.println("CANTIDAD DE INTENTOS: 3 ");
 
-                    d2 = ale.nextInt((6 - 1 + 1)) + 1;
-                    contD2 += d2;
+                for(int i=1 ; i<=3; i++){
+                    Scanner teclado = new Scanner (System.in);
+                    System.out.println("Ingrese su numero");
+                    guardar = teclado.nextInt();
 
-                    System.out.println();
-                    System.out.println("D1: " + d1);
-                    System.out.println("D2: " + d2);
+                    if (guardar > Aleatorio) {
+                        System.out.println("¡El numero a divinar es menor!");
+                    } else if (guardar < Aleatorio){
+                            System.out.println("¡El numero adivinar es mayor");
+                      }else if (guardar == Aleatorio){
+                            System.out.println("¡Perdio");
+                      }
+
                 }
-        if (contD1 > contD2) {
-            System.out.println("¡El dado 1 ganó!");
-        } else if (contD2> contD1) {
-            System.out.println("¡El dado 2 ganó!");
-       } else {
-            System.out.println("¡Es un empate!");
-        }
+
+
+
     }
 
 
